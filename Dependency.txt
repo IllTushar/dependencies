@@ -10,3 +10,18 @@
 //Room
     implementation("androidx.room:room-runtime:2.6.1")
     annotationProcessor("androidx.room:room-compiler:2.6.1")
+
+
+
+
+
+class User(context: Context) {
+
+    private val prefs: SharedPreferences = context.getSharedPreferences("user_class", Context.MODE_PRIVATE)
+
+    var pinCode: String?
+        get() = prefs.getString("pinCode", null)
+        set(value) {
+            prefs.edit().putString("pinCode", value).apply()
+        }
+}
